@@ -16,10 +16,10 @@ polyline_2ms_max7.py opt13.csv
 python3 polyline_2ms.py opt13.csv 
 ```
 
-polyline_2ms.py的y轴在(1.75, 2.25)
-polyline_2ms_max7.py的y轴在ylim(min_t, max_t)
+polyline_2ms.py的y轴在(1.75, 2.25)  
+polyline_2ms_max7.py的y轴在ylim(min_t, max_t)  
 
-***推荐用polyline_2ms.py，polyline_2ms.py最大样本是1300000***
+***推荐用polyline_2ms.py，polyline_2ms.py最大样本是1300000***  
 
 ![image](pic/poly.png)
 
