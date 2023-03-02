@@ -5,7 +5,7 @@ import numpy as np
 from matplotlib.ticker import FuncFormatter
 import sys
 def is_not_exec(val):
-    if val >= 0.000000001 :
+    if val >= 0.002000000 :
         return True
     return False
 
@@ -26,20 +26,14 @@ mean_t = np.mean(clo_t)
 print('max=','%f' % max_t,'min =','%f' % min_t, 'mean =','%f' % mean_t, 'count =','%d' % len(clo_t ))
 big = sum(i >=2.2 for i in clo_t)
 print('big =', '%d' %big , 'big percent', ' %f' %(big/len(clo_t)) )
-small = sum(i <=1.8 for i in clo_t)
-print('big =', '%d' %big ,'small =', '%d' %small, 'big percent', ' %f' %((big+small)/len(clo_t)) )
 #clo_t = list(map(lambda x: x*1000, clo_t))
 #fig = plt.figure(figsize=(64,16))
 fig = plt.figure()
 ax = fig.add_subplot()
-########################
-#bins= [min_t, 3]
-bins= [1.8, 2.8]
+bins= [min_t, 2.40]
 #bins= [min_t, max_t]
 #ax.set_ylim(0, 20)
 
-x_major_locator=MultipleLocator(0.1)
-ax.xaxis.set_major_locator(x_major_locator)
 plt.xlabel("cycle time")
 plt.ylabel("Probability")
 ax.set_xlim(bins)
@@ -50,8 +44,7 @@ plt.xticks(rotation=-20)    # 设置x轴标签旋转角度
 count=len(clo_t )
 weights = np.ones_like(clo_t)/float(count)
 #如果想设置每根柱子的宽度可以使用rwidth的参数
-#ax.hist(clo_t, bins=100, color='blue',  weights=weights, rwidth=0.1)
-ax.hist(clo_t, bins=50, color='blue',  weights=weights, rwidth=0.2)
+ax.hist(clo_t, bins=20, color='blue',  weights=weights, rwidth=0.5)
 plt.savefig("ether.png") 
 ###################################################################################
 #使用ax.hist()函数想要把数据转为密度直方图，但发现直接使用density=true得到的值很奇怪，y轴甚至会大于1，不符合我的预期。

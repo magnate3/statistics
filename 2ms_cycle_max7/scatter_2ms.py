@@ -5,7 +5,7 @@ import sys
 from matplotlib.ticker import MultipleLocator, FormatStrFormatter
 import matplotlib.dates as mdates
 def is_not_exec(val):
-    if val >= 0.000000001 :
+    if val >= 0.00000001 :
         return True
     return False
 
@@ -31,20 +31,17 @@ min_t = min(clo_t)
 mean_t = np.mean(clo_t)
 print('max=','%f' % max_t,'min =','%f' % min_t)
 print('mean =','%f' % mean_t)
-#big = sum(i >=2.2 for i in clo_t)
-big = sum(i >=2.2 or i <= 1.8 for i in clo_t)
+big = sum(i >=2.2 for i in clo_t)
 print('big =', '%d' %big , 'big percent', ' %f' %(big/len(clo_t)) )
 #a1 = plt.subplot(311)
 fig = plt.figure()
 a1 = fig.add_subplot()
-#a1.set_yticks(np.linspace(min_t, max_t, 100)) 
-#plt.ylim(min_t, max_t)
-plt.ylim(0, 8)
-#plt.ylim(min_t, 8)
-y_major_locator=MultipleLocator(0.5)
+a1.set_yticks(np.linspace(min_t, max_t, 100)) 
+a1.set_yticks(np.linspace(min_t, max_t)) 
+y_major_locator=MultipleLocator(0.05)
 ##把y轴的主刻度interval设置为0.05
 a1.yaxis.set_major_locator(y_major_locator)
-#xMajorLocator = MultipleLocator(200000)  # 将x主刻度标签设置为20的倍数
+xMajorLocator = MultipleLocator(10)  # 将x主刻度标签设置为20的倍数
 ##xMajorFormatter = FormatStrFormatter('%1.1f')  # 设置x轴标签文本的格式 一位小数的浮点数
 #xMinorLocator = MultipleLocator(10)  # 将x轴次刻度标签设置为5的倍数
 #a1.xaxis.set_major_locator(xMajorLocator)
@@ -54,11 +51,13 @@ a1.yaxis.set_major_locator(y_major_locator)
 #a1.xaxis.set_minor_locator(xMinorLocator)
 #plt.xlim(0,100)
 #ax = plt.axes()
-#plt.axhline(y=2.0, color="red", linestyle="--")
-#plt.xticks([])  #不显示x轴刻度值
-plt.ylabel("cycle time")
-plt.xlabel("packet number")
+plt.xticks([])  #不显示x轴刻度值
 num = [i for i in range(len(clo_t))]
-a1.plot(num,clo_t,zorder=1)
-plt.savefig("./test.png", dpi=200)
+#a1.plot(num,clo_t)
+
+plt.axhline(y=2.0, color="red", linestyle="--")
+plt.axhline(y=1.8, color="red", linestyle="--")
+plt.axhline(y=2.2, color="red", linestyle="--")
+a1.scatter(num,clo_t,s=1)
+plt.savefig("./scatter.png", dpi=200)
 #print('max=','%f' % clo_t[0],'min =','%f' % clo_t[1])
