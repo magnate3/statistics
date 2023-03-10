@@ -31,3 +31,9 @@ python3  hist2ms_max7.py  opt13.csv
 hist2ms_max7.py 的横坐标在bins= [1.8, 2.8]之间
 
 ![image](pic/ether.png)
+
+# 过滤
+
+filter.py
+
+过滤数据 并生成csv
