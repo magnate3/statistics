@@ -1,3 +1,15 @@
+# python3
+
+```
+ curl "https://bootstrap.pypa.io/pip/3.6/get-pip.py" -o "get-pip.py"
+```
+
+```
+ yum install python3-devel 
+ pip3  install pandas
+ python3 get-pip.py 
+ pip3  install matplotlib
+```
 
 # statistics
 
