@@ -11,6 +11,9 @@
  pip3  install matplotlib
 ```
 
+# origin 画图
+origin 分布图 散点图   
+OriginLab OriginPro    
 # statistics
 
 
