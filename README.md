@@ -19,6 +19,31 @@ python3 scatter_2ms.py    test2.csv
 python3 max_min_2ms.py    test2.csv
 ```
 
++ 适配2ms、1ms、500us需要更改的参数   
+
+```
+a1.set_yticks(np.linspace(min_t, max_t, 20)) 
+a1.set_yticks(np.linspace(min_t, max_t)) 
+```
+
+```
+y_major_locator=MultipleLocator(0.01)
+```
+
+```
+plt.axhline(y=0.6, color="red", linestyle="--")
+plt.axhline(y=0.5, color="red", linestyle="--")
+plt.axhline(y=0.4, color="red", linestyle="--")
+```
+
++ 可以更改的参数   
+```
+
+plt.axhline(y=1.0, color="red", linestyle="--")
+plt.axhline(y=1.1, color="red", linestyle="--")
+plt.axhline(y=0.9, color="red", linestyle="--")
+```
+
 # 折线图
 
 不设置x坐标的尺度，***要求样本> 1百万***，自己会对齐刻度（1百万）  
